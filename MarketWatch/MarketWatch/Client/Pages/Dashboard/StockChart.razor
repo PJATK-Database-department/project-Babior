@@ -1,0 +1,32 @@
+@page "/stocks"
+@inherits StockChartBase;
+
+
+@* <SfSpinner @bind-Visible="SpinnerVisible" Label="Stock Chart..." Size="50" Type="@SpinnerType.Bootstrap"></SfSpinner> *@
+<h3>Stonks</h3>
+@if (IsCompanyChosen)
+{
+    var companyCount = Stocks.Count();
+    if (companyCount > 0)
+    {
+        <SfStockChart Title="@TickerName" EnableSelector="false">
+            <StockChartSeriesCollection>
+                <StockChartSeries
+                    DataSource="@Stocks"
+                    Type="ChartSeriesType.Candle"
+                    XName="Date"
+                    High="High"
+                    Low="Low"
+                    Open="Open"
+                    Close="Close"
+                    Volume="Volume"
+                    Name="@TickerName">
+                </StockChartSeries>
+            </StockChartSeriesCollection>
+        </SfStockChart>
+    }
+    else
+    {
+        <h3>No companies in the database</h3>
+    }
+}

@@ -1,0 +1,13 @@
+﻿@page "/"
+@inherits IndexBase
+
+<AuthorizeView>
+    <Authorized>
+        <h1>Hello, @authState.User.Identity.Name!</h1>
+
+        Welcome to your new app.
+    </Authorized>
+    <NotAuthorized>
+        In order to use the website you have to login or register.
+    </NotAuthorized>
+</AuthorizeView>

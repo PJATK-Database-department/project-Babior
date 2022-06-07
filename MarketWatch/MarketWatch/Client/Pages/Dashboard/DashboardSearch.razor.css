@@ -1,0 +1,28 @@
+.ticker {
+
+}
+.name {
+    margin-left: 25px;
+}
+.equity {
+    right: 15px;
+    position: absolute;
+}
+
+.e-custom {
+    font-size: 50px;
+    height: 30px;
+    width: 80px;
+}
+
+.searchbar
+{
+    position: relative;
+    padding-top: 5px;
+    padding-left: 15px;
+}
+
+.search
+{
+    flex-grow: 8;
+}

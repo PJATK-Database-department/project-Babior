@@ -1,0 +1,43 @@
+@page "/watchlist"
+@using Microsoft.AspNetCore.Authorization
+@using MarketWatch.Shared.Dtos
+@inherits MarketWatch.Client.Pages.Watchlist.CompaniesBase
+@attribute [Authorize]
+
+<SfSpinner @bind-Visible="SpinnerVisible" Label="Loading Companies..." Size="50" Type="@SpinnerType.Bootstrap"></SfSpinner>
+
+@if (Companies != null)
+{
+    <h3 class="md-5">Companies</h3>
+    if (Companies.Any())
+    {
+        <SfGrid @ref="CompanyGrid" DataSource="@Companies"
+                AllowSorting="true" AllowPaging="true" AllowFiltering="true" 
+                Toolbar="@(new List<string>() {"Delete", "Cancel"})" Height="100%">
+            <GridPageSettings PageSize="5" PageCount="5" PageSizes="true"/>
+            <GridFilterSettings Mode="FilterBarMode.Immediate" ImmediateModeDelay="200"/>
+            <GridEvents OnActionBegin="ActionBeginHandler" TValue="CompanyDto"></GridEvents>
+            <GridEditSettings AllowDeleting="true"></GridEditSettings>
+            <GridColumns>
+                <GridColumn Field="@nameof(CompanyDto.LogoUrl)" AllowFiltering="false" AllowSorting="false" HeaderText="Logo">
+                    <Template>
+                        @{
+                            var company = (context as CompanyDto);
+                            <div class="image">
+                                <img src="@company.LogoUrl" alt="@company.Ticker" width="70" height="70"/>
+                            </div>
+                        }
+                    </Template>
+                </GridColumn>
+                <GridColumn Field="@nameof(CompanyDto.Ticker)" HeaderText="Ticker"/>
+                <GridColumn Field="@nameof(CompanyDto.Name)" HeaderText="Name"/>
+                <GridColumn Field="@nameof(CompanyDto.Location)" HeaderText="Location"/>
+                <GridColumn Field="@nameof(CompanyDto.Equity)" HeaderText="Stock Market"/>
+            </GridColumns>
+        </SfGrid>
+    }
+    else
+    {
+        <h3>No companies in the database</h3>
+    }
+}

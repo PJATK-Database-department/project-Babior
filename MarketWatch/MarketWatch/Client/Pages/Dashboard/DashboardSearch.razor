@@ -1,0 +1,67 @@
+@using MarketWatch.Shared.Dtos
+@using Microsoft.AspNetCore.Components
+@inherits MarketWatch.Client.Pages.Dashboard.DashboardSearchBase
+
+
+<div class="container">
+    <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-2">
+        <div class="input-group flex-container searchbar">
+            <div class="search">
+                @* <input type="search" placeholder="What're you searching for?" class="form-control border-0 bg-light"> *@
+                <SfDropDownList @ref="DropDownList" TItem="CompanyDto" TValue="string" Placeholder="Select a company" DataSource="@Companies" AllowFiltering="true" class="form-control border-0 bg-light searchbar">
+                    <DropDownListTemplates TItem="CompanyDto">
+                        <ItemTemplate>
+                            <span>
+                                <span class="ticker">@(context.Ticker)</span>
+                                <span class="name">@(context.Name)</span>
+                                <span class="equity">@(context.Equity)</span>
+                            </span>
+                        </ItemTemplate>
+                        <NoRecordsTemplate>
+                            <span class="norecord">Start to write company's name</span>
+                        </NoRecordsTemplate>
+                    </DropDownListTemplates>
+                    <DropDownListEvents TItem="CompanyDto" TValue="string" OnValueSelect="@OnValueSelectHandler" Filtering="@OnFilter"></DropDownListEvents>
+                    <DropDownListFieldSettings Text="Name" Value="Ticker"></DropDownListFieldSettings>
+                </SfDropDownList>
+            </div>
+            <div>
+                <button type="submit" class="btn text-primary f-lft" @onclick="OnClick">
+                    @* <SfButton @onclick="OnClick" CssClass="e-primary e-icons e-plus">Add</SfButton> *@
+                    <span class="e-icons e-plus" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<SfDialog Height="215px" Width="200px" Target="#target" @bind-Visible="SuccessDialogVisibility">
+    <DialogTemplates>
+        <Header>
+            <div class="e-icon-settings">Success</div>
+        </Header>
+        <Content>
+            <div class="dialogContent"></div>
+            <span class="dialogText">Company was added to your watchlist</span>
+        </Content>
+    </DialogTemplates>
+    <DialogButtons>
+        <DialogButton Content="Close" IsPrimary="true" @OnClick="CloseButtonClick"></DialogButton>
+    </DialogButtons>
+</SfDialog>
+
+<style>
+    .searchbar 
+    {
+        position: relative;
+        padding-top: 5px;
+        padding-left: 15px;
+    }
+    
+    .search
+    {
+        flex-grow: 8;
+    }
+   
+</style>
