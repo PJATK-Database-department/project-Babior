@@ -16,25 +16,25 @@ namespace MarketWatch.Client.Pages.Dashboard
 
         protected List<NewsDto> News { get; set; }
 
-        protected override void OnInitialized()
-        {
-            TickerStateService.OnState += StateHandler;
-        }
-
-        private async void StateHandler()
-        {
-            await LoadNewsData();
-        }
-
-        private async Task LoadNewsData()
-        {
-            var response = await NewsService.GetNewsByTicker(TickerName);
-            News = response.ToList();
-        }
+        public string Test { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
+            TickerStateService.OnState += StateHandler;
+            News =  LoadNewsData().Result.ToList();
+        }
+
+        private async void StateHandler(string message)
+        {
+            if (message != null)
+                Test += message;
             await LoadNewsData();
+            StateHasChanged();
+        }
+
+        private async Task<IEnumerable<NewsDto>> LoadNewsData()
+        {
+            return await NewsService.GetNewsByTicker(TickerName);
         }
     }
 }

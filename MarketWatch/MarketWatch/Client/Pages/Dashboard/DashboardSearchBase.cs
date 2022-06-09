@@ -19,12 +19,9 @@ namespace MarketWatch.Client.Pages.Dashboard
         [Parameter] public EventCallback<string> TextChanged { get; set; }
         [Parameter] public EventCallback<string> CompanyChosen { get; set; }
         
-        // [Parameter] public Action<bool, CompanyDto> ValueChanged { get; set; }
-
         [Parameter] public bool IsCompanyChosen { get; set; }
         [Parameter] public List<CompanyDto> Companies { get; set; }
-        protected SfDropDownList<string, CompanyDto> DropDownList { get; set; }
-        protected bool SuccessDialogVisibility { get; set; } = false;
+        protected bool SuccessDialogVisibility { get; set; }
 
         protected void OnAddClick(MouseEventArgs args)
         {
@@ -38,16 +35,16 @@ namespace MarketWatch.Client.Pages.Dashboard
             SuccessDialogVisibility = false;
         }
 
-        protected async Task OnValueSelectHandler(SelectEventArgs<CompanyDto> args)
-        {
-            await InvokeAsync(async () => await CompanyChosen.InvokeAsync(args.ItemData.Ticker));
-        }
-
         protected async Task OnFilter(FilteringEventArgs args)
         {
             args.PreventDefaultAction = true;
-            if (args.Text == "") return;
+            if (args.Text is " " or null) return;
             await InvokeAsync(async () => await TextChanged.InvokeAsync(args.Text));
+        }
+        
+        protected async Task OnValueSelectHandler(SelectEventArgs<CompanyDto> args)
+        {
+            await InvokeAsync(async () => await CompanyChosen.InvokeAsync(args.ItemData.Ticker));
         }
     }
 }

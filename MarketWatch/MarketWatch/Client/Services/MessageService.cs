@@ -5,11 +5,11 @@ namespace MarketWatch.Client.Services
 {
     public class MessageService : IMessageService
     {
-        public event Action OnState;
+        public event Action<string> OnState;
 
-        public void SendMessage()
+        public void SendMessage(string message)
         {
-            OnState?.Invoke();
+            OnState?.Invoke(message);
         }
     }
 }

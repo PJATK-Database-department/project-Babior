@@ -2,16 +2,14 @@
 @using ExportType = Syncfusion.Blazor.Charts.ExportType
 @inherits StockChartBase;
 
-
 <div class="container">
     @if (IsCompanyChosen && Stocks != null)
     {
-        <h3>Stonks: @TickerName, @IsCompanyChosen</h3>
+        <h3>Stonks: @TickerName</h3>
         <SfSpinner @bind-Visible="SpinnerVisible" Label="Stock Chart..." Size="50" Type="@SpinnerType.Bootstrap"></SfSpinner>
-        var pricesCount = Stocks.Count();
-        if (pricesCount > 0)
+        if (Stocks.Any())
         {
-            <SfStockChart Title="@TickerName" EnableSelector="false" EnableCustomRange="false" ExportType="new List<ExportType>() {}">
+            <SfStockChart @ref="StockChart" Title="@TickerName" EnableSelector="false" EnableCustomRange="false" ExportType="new List<ExportType>() {}">
                 <StockChartSeriesCollection>
                     <StockChartSeries
                         DataSource="@Stocks"

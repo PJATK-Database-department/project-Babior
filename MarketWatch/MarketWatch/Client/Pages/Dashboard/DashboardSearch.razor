@@ -8,7 +8,7 @@
     <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-2">
         <div class="input-group flex-container searchbar">
             <div class="search">
-                <SfDropDownList @ref="DropDownList" TItem="CompanyDto" TValue="string" Placeholder="Select a company" DataSource="@Companies" AllowFiltering="true" class="form-control border-0 bg-light searchbar">
+                <SfDropDownList TItem="CompanyDto" TValue="string" Placeholder="Select a company" DataSource="@Companies" AllowFiltering="true" class="form-control border-0 bg-light searchbar">
                     <DropDownListTemplates TItem="CompanyDto">
                         <ItemTemplate>
                             <span>

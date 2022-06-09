@@ -66,14 +66,12 @@ namespace MarketWatch.Client.Pages.Dashboard
             }
         }
         
-        protected void CompanyChosenHandler(string ticker)
+        protected async void CompanyChosenHandler(string ticker)
         {
             TickerName = ticker;
             IsCompanyChosen = true;
-            StateHasChanged();
-            TickerStateService.SendMessage();
+            TickerStateService.SendMessage("State Changed");
+            await InvokeAsync(StateHasChanged);
         }
-        
-        
     }
 }

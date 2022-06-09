@@ -15,9 +15,9 @@ namespace MarketWatch.Client.Pages.Watchlist
     {
         [Inject] public ICompanyService CompanyService { get; set; }
 
-        public List<CompanyDto> Companies { get; set; }
-        public bool SpinnerVisible { get; set; }
-        public SfGrid<CompanyDto> CompanyGrid { get; set; }
+        protected List<CompanyDto> Companies { get; set; }
+        protected bool SpinnerVisible { get; set; }
+        protected SfGrid<CompanyDto> CompanyGrid { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
@@ -33,8 +33,6 @@ namespace MarketWatch.Client.Pages.Watchlist
                 await CompanyService.DeleteCompany(args.Data.Ticker);
                 Companies = (await CompanyService.GetCompanies()).ToList();
                 await CompanyGrid.Refresh();
-                Debug.WriteLine("This will be displayed in output window");
-                Console.WriteLine("My debug output.");
             }
             StateHasChanged();
         }

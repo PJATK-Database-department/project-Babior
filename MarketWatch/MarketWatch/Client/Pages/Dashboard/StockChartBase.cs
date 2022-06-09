@@ -4,54 +4,44 @@ using System.Threading.Tasks;
 using MarketWatch.Client.Services.Contracts;
 using MarketWatch.Shared.Dtos;
 using Microsoft.AspNetCore.Components;
+using Syncfusion.Blazor.Charts;
 
 namespace MarketWatch.Client.Pages.Dashboard
 {
     public class StockChartBase : ComponentBase
     {
         [Inject] public IPriceService PriceService { get; set; }
-        protected List<PriceDto> Stocks { get; set; }
-        private string _tickerName;
-
-        [Parameter]
-        public string TickerName
-        {
-            get => _tickerName;
-            set
-            {
-                _tickerName = value;
-                LoadStocksData();
-            }
-        }
-
-        private bool _isCompanyChosen;
-
-        [Parameter]
-        public bool IsCompanyChosen
-        {
-            get => _isCompanyChosen;
-            set
-            {
-                _isCompanyChosen = value;
-                LoadStocksData();
-            }
-        }
+        
+        [Inject] public IMessageService TickerStateService { get; set; }
+        [Parameter] public string TickerName { get; set; }
+        [Parameter] public bool IsCompanyChosen { get; set; }
+        protected SfStockChart StockChart; 
+        protected List<PriceDto> Stocks { get; set; } = new();
 
         protected bool SpinnerVisible { get; set; }
-
-        protected async void LoadStocksData()
+        
+        protected override async Task OnInitializedAsync()
         {
-            SpinnerVisible = true;
-            if (TickerName == null) return;
-            var response = await PriceService.GetPricesByTicker(TickerName);
-            Stocks = response.ToList();
-            SpinnerVisible = false;
+            TickerStateService.OnState += StateHandler;
+            await LoadStocksData();
+            StockChart.Refresh();
             StateHasChanged();
         }
 
-        // protected override async Task OnInitializedAsync()
-        // {
-        //     LoadStocksData();
-        // }
+        private async void StateHandler(string ticker)
+        {
+            await LoadStocksData();
+            StockChart.Refresh();
+            StateHasChanged();
+        }
+
+        private async Task LoadStocksData()
+        {
+            //SpinnerVisible = true;
+            var response = await PriceService.GetPricesByTicker(TickerName);
+            if (response == null) return;
+            Stocks = response.ToList();
+            //SpinnerVisible = false;
+        }
     }
 }
