@@ -21,20 +21,15 @@ namespace MarketWatch.Client.Pages.Dashboard
         protected override async Task OnInitializedAsync()
         {
             TickerStateService.OnState += StateHandler;
-            News =  LoadNewsData().Result.ToList();
+            News =  (await NewsService.GetNewsByTicker(TickerName)).ToList();
         }
 
         private async void StateHandler(string message)
         {
             if (message != null)
                 Test += message;
-            await LoadNewsData();
+            News =  (await NewsService.GetNewsByTicker(TickerName)).ToList();
             StateHasChanged();
-        }
-
-        private async Task<IEnumerable<NewsDto>> LoadNewsData()
-        {
-            return await NewsService.GetNewsByTicker(TickerName);
         }
     }
 }

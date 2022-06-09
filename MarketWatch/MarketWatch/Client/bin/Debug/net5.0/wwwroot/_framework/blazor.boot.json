@@ -205,14 +205,14 @@
       "netstandard.dll": "sha256-qE0Q70OyVlHYY\/Y3nwMjfh+zissea9uhfvWMvPWfI7w=",
       "System.Private.CoreLib.dll": "sha256-pdkcl2+OojCfrhxX5eFmKI30wAmhL6s+sCLp7s175k0=",
       "MarketWatch.Shared.dll": "sha256-eb1FPwuOxAyEl3CPSd09URhf1CJW3Nh5+q2MHu3HNkY=",
-      "MarketWatch.Client.dll": "sha256-Pap487pmniFqmpyscde\/\/z9x0pHCSJ0FjP1Gh4dhuJ8="
+      "MarketWatch.Client.dll": "sha256-sjBKQjEiLuRp42HVXRV65stkU4AL4qC2amAMp8AKepg="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
       "MarketWatch.Shared.pdb": "sha256-SRFPuKHYWMfWRV5AKkrteYWhs4Meim4FbSJCnVUcOoc=",
-      "MarketWatch.Client.pdb": "sha256-IREOZRpsalDM6IFXjqD2R8Ll0rNB6CsovpsYQYltCKY="
+      "MarketWatch.Client.pdb": "sha256-zczRGImnja21VuJufVGdVIpbxYdyiIJHbQxOIRuvxvo="
     },
     "runtime": {
       "dotnet.timezones.blat": "sha256-ootDKSA6cNAbgJLmPhrHsPVvVqkGEYdRZxucC22LWjw=",

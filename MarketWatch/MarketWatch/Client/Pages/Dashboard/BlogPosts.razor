@@ -9,8 +9,7 @@
             {
                 <h3>Latest News about @TickerName</h3>
                 {
-                    var newsCount = News.Count();
-                    if (newsCount > 0)
+                    if (News.Any())
                     {
                         <ul class="timeline">
                             @foreach (var news in News)

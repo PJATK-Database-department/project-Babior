@@ -5,9 +5,9 @@
     <div>
         <DashboardSearch InputString="@InputString" TickerName="@TickerName" Companies="@Companies" CompanyChosen="@CompanyChosenHandler" TextChanged="@TextChanged"></DashboardSearch>
     </div>
-    @* <div class="chart"> *@
-    @*     <StockChart TickerName="@TickerName" IsCompanyChosen="@IsCompanyChosen"></StockChart> *@
-    @* </div> *@
+    <div class="chart">
+        <StockChart TickerName="@TickerName" IsCompanyChosen="@IsCompanyChosen"></StockChart>
+    </div>
     <div>
         <BlogPosts TickerName="@TickerName" IsCompanyChosen="@IsCompanyChosen"></BlogPosts>
     </div>

@@ -3,13 +3,13 @@
 @inherits StockChartBase;
 
 <div class="container">
-    @if (IsCompanyChosen && Stocks != null)
+    @if (IsCompanyChosen)
     {
         <h3>Stonks: @TickerName</h3>
         <SfSpinner @bind-Visible="SpinnerVisible" Label="Stock Chart..." Size="50" Type="@SpinnerType.Bootstrap"></SfSpinner>
         if (Stocks.Any())
         {
-            <SfStockChart @ref="StockChart" Title="@TickerName" EnableSelector="false" EnableCustomRange="false" ExportType="new List<ExportType>() {}">
+            <SfStockChart Title="@TickerName" EnableSelector="false" EnableCustomRange="false" ExportType="new List<ExportType>() {}">
                 <StockChartSeriesCollection>
                     <StockChartSeries
                         DataSource="@Stocks"
