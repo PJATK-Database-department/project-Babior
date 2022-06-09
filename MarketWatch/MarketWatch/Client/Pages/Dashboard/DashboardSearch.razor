@@ -4,10 +4,10 @@
 
 
 <div class="container">
+    <h3>Dashboard</h3>
     <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-2">
         <div class="input-group flex-container searchbar">
             <div class="search">
-                @* <input type="search" placeholder="What're you searching for?" class="form-control border-0 bg-light"> *@
                 <SfDropDownList @ref="DropDownList" TItem="CompanyDto" TValue="string" Placeholder="Select a company" DataSource="@Companies" AllowFiltering="true" class="form-control border-0 bg-light searchbar">
                     <DropDownListTemplates TItem="CompanyDto">
                         <ItemTemplate>
@@ -26,7 +26,7 @@
                 </SfDropDownList>
             </div>
             <div>
-                <button type="submit" class="btn text-primary f-lft" @onclick="OnClick">
+                <button type="submit" class="btn text-primary f-lft" @onclick="OnAddClick">
                     @* <SfButton @onclick="OnClick" CssClass="e-primary e-icons e-plus">Add</SfButton> *@
                     <span class="e-icons e-plus" aria-hidden="true"></span>
                 </button>
@@ -50,18 +50,3 @@
         <DialogButton Content="Close" IsPrimary="true" @OnClick="CloseButtonClick"></DialogButton>
     </DialogButtons>
 </SfDialog>
-
-<style>
-    .searchbar 
-    {
-        position: relative;
-        padding-top: 5px;
-        padding-left: 15px;
-    }
-    
-    .search
-    {
-        flex-grow: 8;
-    }
-   
-</style>

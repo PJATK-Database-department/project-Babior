@@ -10,3 +10,15 @@
 /Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/MarketWatch/MarketWatch/Shared/obj/Debug/net5.0/refint/MarketWatch.Shared.dll
 /Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/MarketWatch/MarketWatch/Shared/obj/Debug/net5.0/MarketWatch.Shared.pdb
 /Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/MarketWatch/MarketWatch/Shared/obj/Debug/net5.0/ref/MarketWatch.Shared.dll
+/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Shared/bin/Debug/net5.0/MarketWatch.Shared.deps.json
+/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Shared/bin/Debug/net5.0/MarketWatch.Shared.dll
+/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Shared/bin/Debug/net5.0/MarketWatch.Shared.pdb
+/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Shared/obj/Debug/net5.0/MarketWatch.Shared.csproj.AssemblyReference.cache
+/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Shared/obj/Debug/net5.0/MarketWatch.Shared.GeneratedMSBuildEditorConfig.editorconfig
+/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Shared/obj/Debug/net5.0/MarketWatch.Shared.AssemblyInfoInputs.cache
+/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Shared/obj/Debug/net5.0/MarketWatch.Shared.AssemblyInfo.cs
+/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Shared/obj/Debug/net5.0/MarketWatch.Shared.csproj.CoreCompileInputs.cache
+/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Shared/obj/Debug/net5.0/MarketWatch.Shared.dll
+/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Shared/obj/Debug/net5.0/refint/MarketWatch.Shared.dll
+/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Shared/obj/Debug/net5.0/MarketWatch.Shared.pdb
+/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Shared/obj/Debug/net5.0/ref/MarketWatch.Shared.dll

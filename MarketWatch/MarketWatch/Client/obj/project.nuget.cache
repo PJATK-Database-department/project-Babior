@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "L8AM+qoQdnhGiGSfCsn+i7qUkgNlQ7Kk625k1+sfESWTxXHS4/Lz1AFdKipArtU3Z47k6tdM45npeoPUvIAf5A==",
+  "dgSpecHash": "262ZZH/I8aSMYcwZ8PX46bq2EjwxETg+CswRq8iyp2VPscynKAFuBom3fqXDO1xQT2u1QhyclbwgEDUvfjU0zQ==",
   "success": true,
-  "projectFilePath": "/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/MarketWatch/MarketWatch/Client/MarketWatch.Client.csproj",
+  "projectFilePath": "/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Client/MarketWatch.Client.csproj",
   "expectedPackageFiles": [
     "/Users/liza.babior/.nuget/packages/microsoft.aspnetcore.authorization/5.0.16/microsoft.aspnetcore.authorization.5.0.16.nupkg.sha512",
     "/Users/liza.babior/.nuget/packages/microsoft.aspnetcore.components/5.0.16/microsoft.aspnetcore.components.5.0.16.nupkg.sha512",

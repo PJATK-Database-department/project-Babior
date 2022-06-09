@@ -12,7 +12,6 @@ namespace MarketWatch.Client.Services
 {
     public class PriceService : IPriceService
     {
-        
         private readonly HttpClient _httpClient;
         private const string ApiKey = "3lXRRJe_tdBlWl4bxiuj4WWqaEQhB2df";
 
@@ -23,7 +22,7 @@ namespace MarketWatch.Client.Services
         
         public async Task<IEnumerable<PriceDto>> GetPricesByTicker(string ticker)
         {
-            _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            //_httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
             var today = DateTime.Now.ToString("yyyy-MM-dd");
             var todayYearAgo = DateTime.Now.AddYears(-1).ToString("yyyy-MM-dd");

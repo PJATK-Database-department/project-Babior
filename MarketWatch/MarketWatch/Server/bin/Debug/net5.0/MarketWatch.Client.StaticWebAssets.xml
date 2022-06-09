@@ -2,6 +2,6 @@
   <ContentRoot BasePath="_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication" Path="/Users/liza.babior/.nuget/packages/microsoft.aspnetcore.components.webassembly.authentication/5.0.16/build/../staticwebassets/" />
   <ContentRoot BasePath="_content/Syncfusion.Blazor" Path="/Users/liza.babior/.nuget/packages/syncfusion.blazor/20.1.0.58/build/../staticwebassets/" />
   <ContentRoot BasePath="_content/Syncfusion.Blazor.Themes" Path="/Users/liza.babior/.nuget/packages/syncfusion.blazor.themes/20.1.0.58/build/../staticwebassets/" />
-  <ContentRoot BasePath="/" Path="/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/MarketWatch/MarketWatch/Client/bin/Debug/net5.0/wwwroot/" />
-  <ContentRoot BasePath="/" Path="/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/MarketWatch/MarketWatch/Client/obj/Debug/net5.0/scopedcss/bundle/" />
+  <ContentRoot BasePath="/" Path="/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Client/bin/Debug/net5.0/wwwroot/" />
+  <ContentRoot BasePath="/" Path="/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Client/obj/Debug/net5.0/scopedcss/bundle/" />
 </StaticWebAssets>

@@ -28,7 +28,7 @@ namespace MarketWatch.Client.Services
 
         public async Task<IEnumerable<CompanyDto>> GetCompaniesByName(string name)
         {
-            _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            //_httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             var uriPolygon =
                 $"https://api.polygon.io/v3/reference/tickers?search={name}&active=true&sort=ticker&order=asc&apikey={ApiKey}";
             var response = await _httpClient.GetAsync(uriPolygon);

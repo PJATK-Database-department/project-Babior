@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "v1FOePvAKtNqsXMMNXN5sH3cLgYKq8iEvSLdPkHAq2py9ENCBZMJ9V1NYXI0S86hlot4dBLrYAoJS7gdBZz03w==",
+  "dgSpecHash": "3JlqwPvgPIHekBFzjGpunpZfl2//zVl2vRWSSsQ89EB1IBQ+RKhzga8KGgXJzFTy75sEHs4pepXTPRXEHIvPRw==",
   "success": true,
-  "projectFilePath": "/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/MarketWatch/MarketWatch/Server/MarketWatch.Server.csproj",
+  "projectFilePath": "/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Server/MarketWatch.Server.csproj",
   "expectedPackageFiles": [
     "/Users/liza.babior/.nuget/packages/automapper/10.0.0/automapper.10.0.0.nupkg.sha512",
     "/Users/liza.babior/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",

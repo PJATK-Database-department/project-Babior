@@ -1,7 +1,4 @@
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using System.Threading.Tasks;
 using MarketWatch.Server.Data;
 using MarketWatch.Server.Entities;
@@ -16,7 +13,6 @@ namespace MarketWatch.Server.Repositories
     public class CompanyRepository : ICompanyRepository
     {
         private readonly ApplicationDbContext _marketWatchContext;
-        private readonly string _apiKey = "3lXRRJe_tdBlWl4bxiuj4WWqaEQhB2df";
 
         public CompanyRepository(ApplicationDbContext marketWatchContext)
         {

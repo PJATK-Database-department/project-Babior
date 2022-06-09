@@ -9132,11 +9132,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/MarketWatch/MarketWatch/Server/MarketWatch.Server.csproj",
+      "projectUniqueName": "/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Server/MarketWatch.Server.csproj",
       "projectName": "MarketWatch.Server",
-      "projectPath": "/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/MarketWatch/MarketWatch/Server/MarketWatch.Server.csproj",
+      "projectPath": "/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Server/MarketWatch.Server.csproj",
       "packagesPath": "/Users/liza.babior/.nuget/packages/",
-      "outputPath": "/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/MarketWatch/MarketWatch/Server/obj/",
+      "outputPath": "/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Server/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/liza.babior/.nuget/NuGet/NuGet.Config"
@@ -9151,11 +9151,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/MarketWatch/MarketWatch/Client/MarketWatch.Client.csproj": {
-              "projectPath": "/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/MarketWatch/MarketWatch/Client/MarketWatch.Client.csproj"
+            "/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Client/MarketWatch.Client.csproj": {
+              "projectPath": "/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Client/MarketWatch.Client.csproj"
             },
-            "/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/MarketWatch/MarketWatch/Shared/MarketWatch.Shared.csproj": {
-              "projectPath": "/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/MarketWatch/MarketWatch/Shared/MarketWatch.Shared.csproj"
+            "/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Shared/MarketWatch.Shared.csproj": {
+              "projectPath": "/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Shared/MarketWatch.Shared.csproj"
             }
           }
         }
