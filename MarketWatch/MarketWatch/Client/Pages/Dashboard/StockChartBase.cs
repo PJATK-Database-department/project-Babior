@@ -17,27 +17,36 @@ namespace MarketWatch.Client.Pages.Dashboard
         [Parameter] public bool IsCompanyChosen { get; set; }
         protected List<PriceDto> Stocks { get; set; }
 
+        protected SfStockChart StockChart { get; set; }
+
         protected bool SpinnerVisible { get; set; }
+        
+        protected bool Vis { get; set; }
         
         protected override async Task OnInitializedAsync()
         {
+            SpinnerVisible = true;
             TickerStateService.OnState += StateHandler;
-            var resp = await PriceService.GetPricesByTicker(TickerName);
-            Stocks = resp == null ? new List<PriceDto>() : resp.ToList();
-            //StockChart.Refresh();
+            //var resp = await PriceService.GetPricesByTicker(TickerName);
+            //Stocks = resp == null ? new List<PriceDto>() : resp.ToList();
+            Stocks = new List<PriceDto>() ;
+            SpinnerVisible = false;
         }
 
         private async void StateHandler(string ticker)
         {
+            StateHasChanged();
+            SpinnerVisible = true;
             var resp = await PriceService.GetPricesByTicker(TickerName);
             Stocks = resp == null ? new List<PriceDto>() : resp.ToList();
-            //StockChart.Refresh();
+            SpinnerVisible = false;
+            StockChart?.Refresh();
             StateHasChanged();
         }
 
         private async Task LoadStocksData()
         {
-            //SpinnerVisible = true;
+            SpinnerVisible = true;
             var response = await PriceService.GetPricesByTicker(TickerName);
             if (response == null) return;
             Stocks = response.ToList();
