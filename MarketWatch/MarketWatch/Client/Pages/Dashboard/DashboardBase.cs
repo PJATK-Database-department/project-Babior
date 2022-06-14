@@ -31,6 +31,8 @@ namespace MarketWatch.Client.Pages.Dashboard
         }
 
         protected string TickerName { get; set; }
+        
+        protected CompanyDto Company { get; set; }
 
         protected List<CompanyDto> Companies { get; set; }
 
@@ -66,9 +68,10 @@ namespace MarketWatch.Client.Pages.Dashboard
             }
         }
         
-        protected async void CompanyChosenHandler(string ticker)
+        protected async void CompanyChosenHandler(CompanyDto company)
         {
-            TickerName = ticker;
+            Company = company;
+            TickerName = company.Ticker;
             IsCompanyChosen = true;
             TickerStateService.SendMessage("State Changed");
             await InvokeAsync(StateHasChanged);

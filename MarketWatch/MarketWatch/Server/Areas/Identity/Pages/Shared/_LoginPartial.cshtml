@@ -20,34 +20,31 @@
         <link rel="stylesheet" href="~/Identity/css/site.min.css" asp-append-version="true" />
     </environment>
 
-<ul class="navbar-nav">
-    @if (SignInManager.IsSignedIn(User))
-    {
-        <li class="nav-item">
-            <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
-        </li>
-        <li class="nav-item">
-            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="/" method="post">
-                <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-            </form>
-        </li>
-    }
-    else
-    {
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register" asp-route-returnUrl="@returnUrl">Register aaa</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login" asp-route-returnUrl="@returnUrl">Login</a>
-        </li>
-    }
-</ul>
+@* <ul class="navbar-nav"> *@
+@*     @if (SignInManager.IsSignedIn(User)) *@
+@*     { *@
+@*         <li class="nav-item"> *@
+@*             <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a> *@
+@*         </li> *@
+@*         <li class="nav-item"> *@
+@*             <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="/" method="post"> *@
+@*                 <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button> *@
+@*             </form> *@
+@*         </li> *@
+@*     } *@
+@*     else *@
+@*     { *@
+@*         <li class="nav-item"> *@
+@*             <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register" asp-route-returnUrl="@returnUrl">Register aaa</a> *@
+@*         </li> *@
+@*         <li class="nav-item"> *@
+@*             <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login" asp-route-returnUrl="@returnUrl">Login</a> *@
+@*         </li> *@
+@*     } *@
+@* </ul> *@
 
-<div class="container body-content">
+<div>
     @RenderBody()
-    <hr />
-    <footer>
-    </footer>
 </div>
 
     <environment include="Development">
@@ -71,4 +68,4 @@
         <script src="~/Identity/js/site.min.js" asp-append-version="true"></script>
     </environment>
 
-@RenderSectionAsync("scripts")
+@await RenderSectionAsync("scripts")

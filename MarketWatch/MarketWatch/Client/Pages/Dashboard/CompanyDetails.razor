@@ -1,0 +1,43 @@
+@page "/details"
+@inherits CompanyDetailsBase
+
+<section class="pt-5 pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <a href="#" class="col-3">
+                    <img src="https://api.polygon.io/v1/reference/company-branding/d3d3LnRlc2xhLmNvbQ/images/2022-01-10_logo.svg?apiKey=3lXRRJe_tdBlWl4bxiuj4WWqaEQhB2df" width="100" height="100" alt=""/>
+                </a>
+            </div>
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="ml-3 title">Tesla inc Motors Shmorots @Company.Name</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="text-muted mb-1">Country: USA @Company.Location</div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="text-muted mb-1">Industry: Auto motor @Company.Equity</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="text-muted mb-1">CEO: Ilon Musk @Company.Equity</div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="text-muted mb-1">Tags: Unicorn @Company.Equity</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .title {
+        font-size: 30px;
+        padding-bottom: 10px;
+        font-weight: bold;
+    }
+</style>

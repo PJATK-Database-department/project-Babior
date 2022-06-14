@@ -10,7 +10,7 @@
         <SfSpinner @bind-Visible="SpinnerVisible" Label="Stock Chart..." Size="50" Type="@SpinnerType.Bootstrap"></SfSpinner>
         <h3>Stonks: @TickerName</h3>
 
-        <SfStockChart @ref="StockChart" Title="@TickerName" EnableSelector="false" EnableCustomRange="false" ExportType="new List<ExportType>() {}">
+        <SfStockChart @ref="StockChart" Title="@TickerName" EnableSelector="false" ExportType="new List<ExportType>() {}">
             <StockChartSeriesCollection>
                 <StockChartSeries
                     DataSource="@Stocks"
@@ -35,3 +35,5 @@
         }
     }
 </div>
+
+<PriceDetails></PriceDetails>

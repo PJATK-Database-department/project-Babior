@@ -30,6 +30,12 @@ ul.timeline > li[b-myiu2jn9j2]:before {
     height: 20px;
     z-index: 400;
 }
+/* /Pages/Dashboard/CompanyDetails.razor.rz.scp.css */
+.title[b-dnssr2g42d] {
+    font-size: 30px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
 /* /Pages/Dashboard/Dashboard.razor.rz.scp.css */
 .e-panel-header[b-8711uzsbhf] {
     background-color: rgba(0, 0, 0, .1);

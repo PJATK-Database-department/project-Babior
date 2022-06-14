@@ -19,7 +19,7 @@ html {
 }
 
 .container {
-  max-width: 960px;
+  width: 1600px;
 }
 
 .pricing-header {
@@ -51,7 +51,7 @@ html {
 
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  /*margin-bottom: 60px;*/
 }
 .footer {
   position: absolute;

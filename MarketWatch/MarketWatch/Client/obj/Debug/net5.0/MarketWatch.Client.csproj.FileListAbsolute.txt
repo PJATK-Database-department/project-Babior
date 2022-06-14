@@ -1353,3 +1353,8 @@
 /Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Client/obj/Debug/net5.0/MarketWatch.Client.pdb
 /Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Client/obj/Debug/net5.0/ref/MarketWatch.Client.dll
 /Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Client/obj/Debug/net5.0/scopedcss/Pages/Dashboard/BlogPosts.razor.rz.scp.css
+/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Dashboard/CompanyDetails.razor.g.cs
+/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Client/obj/Debug/net5.0/Razor/Pages/Dashboard/CompanyDetails.razor.g.cs
+/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Client/obj/Debug/net5.0/scopedcss/Pages/Dashboard/CompanyDetails.razor.rz.scp.css
+/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Dashboard/PriceDetails.razor.g.cs
+/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Client/obj/Debug/net5.0/Razor/Pages/Dashboard/PriceDetails.razor.g.cs

@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using MarketWatch.Client.Services.Contracts;
 using MarketWatch.Shared.Dtos;
@@ -16,8 +14,10 @@ namespace MarketWatch.Client.Pages.Dashboard
 
         [Parameter] public string InputString { get; set; }
         [Parameter] public string TickerName { get; set; }
+
+        [Parameter] public CompanyDto Company { get; set; }
         [Parameter] public EventCallback<string> TextChanged { get; set; }
-        [Parameter] public EventCallback<string> CompanyChosen { get; set; }
+        [Parameter] public EventCallback<CompanyDto> CompanyChosen { get; set; }
         
         [Parameter] public bool IsCompanyChosen { get; set; }
         [Parameter] public List<CompanyDto> Companies { get; set; }
@@ -44,7 +44,7 @@ namespace MarketWatch.Client.Pages.Dashboard
         
         protected async Task OnValueSelectHandler(SelectEventArgs<CompanyDto> args)
         {
-            await InvokeAsync(async () => await CompanyChosen.InvokeAsync(args.ItemData.Ticker));
+            await InvokeAsync(async () => await CompanyChosen.InvokeAsync(args.ItemData));
         }
     }
 }

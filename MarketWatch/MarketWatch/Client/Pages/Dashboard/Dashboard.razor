@@ -5,6 +5,7 @@
     <div>
         <DashboardSearch InputString="@InputString" TickerName="@TickerName" Companies="@Companies" CompanyChosen="@CompanyChosenHandler" TextChanged="@TextChanged"></DashboardSearch>
     </div>
+    
     <div class="chart">
         <StockChart TickerName="@TickerName" IsCompanyChosen="@IsCompanyChosen"></StockChart>
     </div>
@@ -12,25 +13,3 @@
         <BlogPosts TickerName="@TickerName" IsCompanyChosen="@IsCompanyChosen"></BlogPosts>
     </div>
 </div>
-
-
-
-@* <SfDashboardLayout CellSpacing="@(new double[] {10, 30})" Columns="4" AllowDragging="false"> *@
-@*     <DashboardLayoutPanels> *@
-@*         <DashboardLayoutPanel Row="1" SizeX="3"> *@
-@*             <ContentTemplate> *@
-@*                 <DashboardSearch TickerName="@TickerName"></DashboardSearch> *@
-@*             </ContentTemplate> *@
-@*         </DashboardLayoutPanel> *@
-@*         <DashboardLayoutPanel Row="2" SizeX="3" SizeY="2"> *@
-@*             <ContentTemplate> *@
-@* *@
-@*             </ContentTemplate> *@
-@*         </DashboardLayoutPanel> *@
-@*         <DashboardLayoutPanel Row="4" SizeX=2> *@
-@*             <ContentTemplate> *@
-@*                 <BlogPosts></BlogPosts> *@
-@*             </ContentTemplate> *@
-@*         </DashboardLayoutPanel> *@
-@*     </DashboardLayoutPanels> *@
-@* </SfDashboardLayout> *@
