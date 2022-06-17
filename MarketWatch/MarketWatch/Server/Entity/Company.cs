@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -13,6 +14,9 @@ namespace MarketWatch.Server.Entities
         public string Name { get; set; }
         [JsonProperty("locale")] public string Location { get; set; }
         [JsonProperty("primary_exchange")] public string Equity { get; set; }
+
+
+        [JsonProperty("sic_description")] public string Industry { get; set; }
         public string Description { get; set; }
         public Branding Branding { get; set; }
     }

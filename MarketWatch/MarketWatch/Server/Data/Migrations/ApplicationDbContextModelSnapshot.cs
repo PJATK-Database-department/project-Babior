@@ -147,6 +147,9 @@ namespace MarketWatch.Server.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<int?>("BrandingId")
                         .HasColumnType("int");
 
@@ -154,6 +157,9 @@ namespace MarketWatch.Server.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Equity")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Industry")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Location")
@@ -166,6 +172,8 @@ namespace MarketWatch.Server.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CompanyId");
+
+                    b.HasIndex("ApplicationUserId");
 
                     b.HasIndex("BrandingId");
 
@@ -374,6 +382,10 @@ namespace MarketWatch.Server.Data.Migrations
 
             modelBuilder.Entity("MarketWatch.Server.Entities.Company", b =>
                 {
+                    b.HasOne("MarketWatch.Server.Entity.ApplicationUser", null)
+                        .WithMany("Companies")
+                        .HasForeignKey("ApplicationUserId");
+
                     b.HasOne("MarketWatch.Server.Entities.Branding", "Branding")
                         .WithMany()
                         .HasForeignKey("BrandingId");
@@ -430,6 +442,11 @@ namespace MarketWatch.Server.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("MarketWatch.Server.Entity.ApplicationUser", b =>
+                {
+                    b.Navigation("Companies");
                 });
 #pragma warning restore 612, 618
         }
