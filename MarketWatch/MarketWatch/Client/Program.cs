@@ -30,7 +30,7 @@ namespace MarketWatch.Client
             builder.Services.AddScoped<ICompanyService, CompanyService>();
             builder.Services.AddScoped<IPriceService, PriceService>();
             builder.Services.AddScoped<INewsService, NewsService>();
-            builder.Services.AddScoped<IMessageService, MessageService>();
+            builder.Services.AddMemoryCache();
 
             builder.Services.AddApiAuthorization();
             builder.Services.AddSyncfusionBlazor(); 

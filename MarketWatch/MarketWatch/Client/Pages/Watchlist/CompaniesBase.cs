@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MarketWatch.Client.Services.Contracts;
 using MarketWatch.Shared.Dtos;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 using Syncfusion.Blazor.Grids;
 using Action = Syncfusion.Blazor.Grids.Action;
 
@@ -19,10 +20,19 @@ namespace MarketWatch.Client.Pages.Watchlist
         protected bool SpinnerVisible { get; set; }
         protected SfGrid<CompanyDto> CompanyGrid { get; set; }
 
+        [CascadingParameter] private Task<AuthenticationState> _authState { get; set; }
+        
+        protected AuthenticationState AuthState { get; set; }
         protected override async Task OnInitializedAsync()
         {
+            AuthState = await _authState;
             SpinnerVisible = true;
-            Companies = (await CompanyService.GetCompanies()).ToList();
+            if (AuthState != null)
+            {
+                Companies = (await CompanyService.GetCompanies(AuthState.User.Identity.Name)).ToList();
+            }
+
+            var test = Companies;
             SpinnerVisible = false;
         }
 
@@ -31,7 +41,10 @@ namespace MarketWatch.Client.Pages.Watchlist
             if (args.RequestType.Equals(Action.Delete))
             {
                 await CompanyService.DeleteCompany(args.Data.Ticker);
-                Companies = (await CompanyService.GetCompanies()).ToList();
+                if (AuthState != null)
+                {
+                    Companies = (await CompanyService.GetCompanies(AuthState.User.Identity.Name)).ToList();
+                }
                 await CompanyGrid.Refresh();
             }
             StateHasChanged();

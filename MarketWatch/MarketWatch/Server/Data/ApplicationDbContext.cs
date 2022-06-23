@@ -21,18 +21,15 @@ namespace MarketWatch.Server.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder
+                .Entity<ApplicationUser>()
+                .HasMany(p => p.Companies)
+                .WithMany(p => p.Users)
+                .UsingEntity(j => j.ToTable("UserCompanies"));
+            
             base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<ApplicationUser>()
-                .HasMany(c => c.Companies)
-                .WithOne();
-
-            // modelBuilder.Entity<Company>()
-            //     .HasMany(c => c.Prices)
-            //     .WithOne();
         }
 
         public DbSet<Company>? Companies { get; set; }
-        public DbSet<Branding>? Brandings { get; set; }
     }
 }

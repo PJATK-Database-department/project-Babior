@@ -9,6 +9,6 @@ namespace MarketWatch.Server.Entity
 {
     public class ApplicationUser : IdentityUser
     {
-        public IEnumerable<Company> Companies { get; set; }
+        public ICollection<Company> Companies { get; set; } = new List<Company>();
     }
 }

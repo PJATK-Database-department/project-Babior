@@ -1,19 +1,17 @@
-@using MarketWatch.Client.Pages.Watchlist
 @using ExportType = Syncfusion.Blazor.Charts.ExportType
 @inherits StockChartBase;
 
-
-
 <div class="container">
-    @if (IsCompanyChosen)
+    @if (IsCompanyChosen && Data.Stocks != null)
     {
-        <SfSpinner @bind-Visible="SpinnerVisible" Label="Stock Chart..." Size="50" Type="@SpinnerType.Bootstrap"></SfSpinner>
-        <h3>Stonks: @TickerName</h3>
+        <h3>Stonks</h3>
 
-        <SfStockChart @ref="StockChart" Title="@TickerName" EnableSelector="false" ExportType="new List<ExportType>() {}">
+        if (Data.Stocks.Any())
+        {
+            <SfStockChart @ref="StockChart" Title="@Data.Company.Ticker" EnableSelector="false" ExportType="new List<ExportType>() {}">
             <StockChartSeriesCollection>
                 <StockChartSeries
-                    DataSource="@Stocks"
+                    DataSource="@Data.Stocks"
                     Type="ChartSeriesType.HiloOpenClose"
                     XName="Date"
                     High="High"
@@ -21,19 +19,14 @@
                     Open="Open"
                     Close="Close"
                     Volume="Volume"
-                    Name="@TickerName">
+                    Name="@Data.Company.Ticker">
                 </StockChartSeries>
             </StockChartSeriesCollection>
         </SfStockChart>
-        if (Stocks.Any())
-        {
-            Vis = true;
-        }
-        else
-        {
-            <h3>No data about company's stocks found</h3>
-        }
+    }
+    else
+    {
+        <h3>No data about company's stocks found</h3>
+    }
     }
 </div>
-
-<PriceDetails></PriceDetails>

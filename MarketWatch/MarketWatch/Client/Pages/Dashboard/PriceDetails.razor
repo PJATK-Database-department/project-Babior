@@ -1,34 +1,32 @@
-@page "/pricedetails"
+@inherits PriceDetailsBase
 
-<section class="pt-5 pb-5">
+
+<section class="pt-5 pl-2">
     <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="text-muted mb-1">From: </div>
+        @if (IsCompanyChosen && Stocks != null)
+        {
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="text-muted mb-1">From: @LastPrice.Date.ToString("yyyy-MM-dd")</div>
+                </div>
+                <div class="col-md-3">
+                    <div class="text-muted mb-1">Open: @LastPrice.Open</div>
+                </div>
+                <div class="col-md-3">
+                    <div class="text-muted mb-1">Close: @LastPrice.Close</div>
+                </div>
             </div>
-            <div class="col-md-3">
-                <div class="text-muted mb-1">Open: </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="text-muted mb-1">Volume: @LastPrice.Volume</div>
+                </div>
+                <div class="col-md-3">
+                    <div class="text-muted mb-1">High: @LastPrice.High</div>
+                </div>
+                <div class="col-md-3">
+                    <div class="text-muted mb-1">Low: @LastPrice.Low</div>
+                </div>
             </div>
-            <div class="col-md-3">
-                <div class="text-muted mb-1">Close: </div>
-            </div>
-            <div class="col-md-3">
-                <div class="text-muted mb-1">Volume: </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="text-muted mb-1">High:</div>
-            </div>
-            <div class="col-md-3">
-                <div class="text-muted mb-1">Low:</div>
-            </div>
-            <div class="col-md-3">
-                <div class="text-muted mb-1">After hours:</div>
-            </div>
-            <div class="col-md-3">
-                <div class="text-muted mb-1">Pre-market:</div>
-            </div>
-        </div>
+        }
     </div>
 </section>

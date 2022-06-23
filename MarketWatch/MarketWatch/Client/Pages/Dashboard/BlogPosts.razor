@@ -1,18 +1,16 @@
-@page "/news"
-@using MarketWatch.Shared.Dtos
 @inherits BlogPostsBase
 
 <div class="container mt-5 mb-5">
     <div class="row">
         <div class="col-md-6">
-            @if (IsCompanyChosen)
+            @if (IsCompanyChosen && Data.News != null)
             {
-                <h3>Latest News about @TickerName</h3>
+                <h3>Latest News</h3>
                 {
-                    if (News.Any())
+                    if (Data.News.Any())
                     {
                         <ul class="timeline">
-                            @foreach (var news in News)
+                            @foreach (var news in Data.News)
                             {
                                 <li>
                                     <a href="@news.Publisher.HomePageUrl">@news.Publisher.Name</a>

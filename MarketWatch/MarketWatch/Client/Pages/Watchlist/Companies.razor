@@ -1,6 +1,4 @@
 @page "/watchlist"
-@using Microsoft.AspNetCore.Authorization
-@using MarketWatch.Shared.Dtos
 @inherits MarketWatch.Client.Pages.Watchlist.CompaniesBase
 @attribute [Authorize]
 
@@ -12,7 +10,7 @@
     if (Companies.Any())
     {
         <SfGrid @ref="CompanyGrid" DataSource="@Companies"
-                AllowSorting="true" AllowPaging="true" AllowFiltering="true" 
+                AllowSorting="true" AllowPaging="true" AllowFiltering="true"
                 Toolbar="@(new List<string>() {"Delete", "Cancel"})" Height="100%">
             <GridPageSettings PageSize="5" PageCount="5" PageSizes="true"/>
             <GridFilterSettings Mode="FilterBarMode.Immediate" ImmediateModeDelay="200"/>
@@ -24,15 +22,16 @@
                         @{
                             var company = (context as CompanyDto);
                             <div class="image">
-                                <img src="@company.LogoUrl" alt="@company.Ticker" width="70" height="70"/>
+                                <img src="@company.LogoUrl" alt="@company.LogoUrl" width="70" height="70"/>
                             </div>
                         }
                     </Template>
                 </GridColumn>
                 <GridColumn Field="@nameof(CompanyDto.Ticker)" HeaderText="Ticker"/>
                 <GridColumn Field="@nameof(CompanyDto.Name)" HeaderText="Name"/>
-                <GridColumn Field="@nameof(CompanyDto.Location)" HeaderText="Location"/>
+                <GridColumn Field="@nameof(CompanyDto.Location).ToUpper()" HeaderText="Location"/>
                 <GridColumn Field="@nameof(CompanyDto.Equity)" HeaderText="Stock Market"/>
+                <GridColumn Field="@nameof(CompanyDto.TotalEmployees)" HeaderText="Number of Employees"/>
             </GridColumns>
         </SfGrid>
     }

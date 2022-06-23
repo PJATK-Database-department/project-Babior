@@ -10,26 +10,19 @@ namespace MarketWatch.Client.Pages.Dashboard
     public class BlogPostsBase : ComponentBase
     {
         [Inject] public INewsService NewsService { get; set; }
-        [Inject] public IMessageService TickerStateService { get; set; }
-        [Parameter] public string TickerName { get; set; }
         [Parameter] public bool IsCompanyChosen { get; set; }
 
-        protected List<NewsDto> News { get; set; }
+        [Parameter] public DataWrapper Data { get; set; }
 
-        public string Test { get; set; }
-
-        protected override async Task OnInitializedAsync()
+        protected override void OnInitialized()
         {
-            TickerStateService.OnState += StateHandler;
-            News =  (await NewsService.GetNewsByTicker(TickerName)).ToList();
+            Data.News =  new List<NewsDto>();
         }
 
-        private async void StateHandler(string message)
+        protected override async Task OnParametersSetAsync()
         {
-            if (message != null)
-                Test += message;
-            News =  (await NewsService.GetNewsByTicker(TickerName)).ToList();
-            StateHasChanged();
+            //News =  (await NewsService.GetNewsCache(Ticker)).ToList();
+            await base.OnParametersSetAsync();
         }
     }
 }

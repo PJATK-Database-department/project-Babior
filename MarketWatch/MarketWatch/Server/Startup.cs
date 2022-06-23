@@ -50,7 +50,7 @@ namespace MarketWatch.Server
             
             services.AddScoped<ICompanyRepository, CompanyRepository>();
             services.AddControllers().AddNewtonsoftJson();
-
+            
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddSyncfusionBlazor(options => { options.IgnoreScriptIsolation = true; });
@@ -80,7 +80,7 @@ namespace MarketWatch.Server
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            
             app.UseIdentityServer();
             app.UseAuthentication();
             app.UseAuthorization();

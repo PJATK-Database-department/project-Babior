@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -5,16 +6,28 @@ using System.Timers;
 using MarketWatch.Client.Services.Contracts;
 using MarketWatch.Shared.Dtos;
 using Microsoft.AspNetCore.Components;
-using Syncfusion.Blazor.DropDowns;
+using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace MarketWatch.Client.Pages.Dashboard
 {
     public class DashboardBase : ComponentBase
     {
         [Inject] public ICompanyService CompanyService { get; set; }
-        [Inject] public IMessageService TickerStateService { get; set; }
+        [Inject] public IPriceService PriceService { get; set; }
+        [Inject] public INewsService NewsService { get; set; }
+        [Inject] private IMemoryCache MemoryCache { get; set; }
+        [CascadingParameter] private Task<AuthenticationState> _authState { get; set; }
+        protected AuthenticationState AuthState { get; set; }
+        protected string Ticker { get; set; }
+        protected List<CompanyDto> Companies { get; set; }
+        protected bool IsCompanyChosen { get; set; }
+        protected DataWrapper Data { get; set; }
+
         private Timer _timer;
+
         private string _text;
+
         protected string InputString
         {
             get => _text;
@@ -23,26 +36,26 @@ namespace MarketWatch.Client.Pages.Dashboard
                 if (value == _text) return;
                 _text = value;
                 DisposeTimer();
-                _timer = new Timer(5000);
+                _timer = new Timer(3000);
                 _timer.Elapsed += TimerElapsed_TickAsync;
                 _timer.Enabled = true;
                 _timer.Start();
             }
         }
 
-        protected string TickerName { get; set; }
-        
-        protected CompanyDto Company { get; set; }
+        protected bool SpinnerVisible { get; set; }
 
-        protected List<CompanyDto> Companies { get; set; }
-
-        protected bool IsCompanyChosen { get; set; }
-
-        protected void TextChanged(string ticker)
+        protected override async Task OnInitializedAsync()
         {
-            InputString = ticker;
+            AuthState = await _authState;
+            Data = new DataWrapper()
+            {
+                Stocks = new List<PriceDto>(),
+                News = new List<NewsDto>()
+            };
+            await base.OnInitializedAsync();
         }
-        
+
         private async void TimerElapsed_TickAsync(object sender, ElapsedEventArgs elapsedEventArgs)
         {
             DisposeTimer();
@@ -58,6 +71,11 @@ namespace MarketWatch.Client.Pages.Dashboard
             _timer = null;
         }
 
+        protected void TextChanged(string ticker)
+        {
+            InputString = ticker;
+        }
+
         private async Task OnSearchAsync()
         {
             if (!string.IsNullOrWhiteSpace(_text))
@@ -67,14 +85,44 @@ namespace MarketWatch.Client.Pages.Dashboard
                 await InvokeAsync(StateHasChanged);
             }
         }
-        
-        protected async void CompanyChosenHandler(CompanyDto company)
+
+        protected async Task CompanyChosenHandler(CompanyDto company)
         {
-            Company = company;
-            TickerName = company.Ticker;
+            SpinnerVisible = true;
+            Ticker = company.Ticker;
+
+            var data = await GetCache(company.Ticker);
+
+            Data = data;
+
             IsCompanyChosen = true;
-            TickerStateService.SendMessage("State Changed");
             await InvokeAsync(StateHasChanged);
+            SpinnerVisible = false;
+        }
+
+        protected void CompanyAdd()
+        {
+            if (Ticker == null || Data.Company == null) return;
+
+            CompanyService.AddCompanyToWatchlist(Data.Company, AuthState.User.Identity.Name);
+        }
+
+        private async Task<DataWrapper> GetCache(string ticker)
+        {
+            var output = ticker is null or "" or " " ? MemoryCache.Get<DataWrapper>(ticker) : null;
+
+            if (output is not null) return output;
+
+            output = new DataWrapper
+            {
+                Company = await CompanyService.GetCompanyByTicker(ticker),
+                Stocks = (await PriceService.GetPricesByTicker(ticker)).ToList(),
+                News = (await NewsService.GetNewsByTicker(ticker)).ToList()
+            };
+
+            MemoryCache.Set(ticker, output, TimeSpan.FromDays(1));
+
+            return output;
         }
     }
 }

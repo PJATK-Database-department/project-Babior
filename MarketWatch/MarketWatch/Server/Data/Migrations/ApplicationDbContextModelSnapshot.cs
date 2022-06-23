@@ -19,6 +19,21 @@ namespace MarketWatch.Server.Data.Migrations
                 .HasAnnotation("ProductVersion", "5.0.16")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("ApplicationUserCompany", b =>
+                {
+                    b.Property<int>("CompaniesCompanyId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UsersId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("CompaniesCompanyId", "UsersId");
+
+                    b.HasIndex("UsersId");
+
+                    b.ToTable("UserCompanies");
+                });
+
             modelBuilder.Entity("IdentityServer4.EntityFramework.Entities.DeviceFlowCodes", b =>
                 {
                     b.Property<string>("UserCode")
@@ -122,24 +137,6 @@ namespace MarketWatch.Server.Data.Migrations
                     b.ToTable("PersistedGrants");
                 });
 
-            modelBuilder.Entity("MarketWatch.Server.Entities.Branding", b =>
-                {
-                    b.Property<int>("BrandingId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("IconUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LogoUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("BrandingId");
-
-                    b.ToTable("Brandings");
-                });
-
             modelBuilder.Entity("MarketWatch.Server.Entities.Company", b =>
                 {
                     b.Property<int>("CompanyId")
@@ -147,22 +144,19 @@ namespace MarketWatch.Server.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ApplicationUserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int?>("BrandingId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Equity")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Industry")
+                    b.Property<string>("IconUrl")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Location")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LogoUrl")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -171,11 +165,10 @@ namespace MarketWatch.Server.Data.Migrations
                     b.Property<string>("Ticker")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("TotalEmployees")
+                        .HasColumnType("int");
+
                     b.HasKey("CompanyId");
-
-                    b.HasIndex("ApplicationUserId");
-
-                    b.HasIndex("BrandingId");
 
                     b.ToTable("Companies");
                 });
@@ -380,17 +373,19 @@ namespace MarketWatch.Server.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("MarketWatch.Server.Entities.Company", b =>
+            modelBuilder.Entity("ApplicationUserCompany", b =>
                 {
-                    b.HasOne("MarketWatch.Server.Entity.ApplicationUser", null)
-                        .WithMany("Companies")
-                        .HasForeignKey("ApplicationUserId");
-
-                    b.HasOne("MarketWatch.Server.Entities.Branding", "Branding")
+                    b.HasOne("MarketWatch.Server.Entities.Company", null)
                         .WithMany()
-                        .HasForeignKey("BrandingId");
+                        .HasForeignKey("CompaniesCompanyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Branding");
+                    b.HasOne("MarketWatch.Server.Entity.ApplicationUser", null)
+                        .WithMany()
+                        .HasForeignKey("UsersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -442,11 +437,6 @@ namespace MarketWatch.Server.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("MarketWatch.Server.Entity.ApplicationUser", b =>
-                {
-                    b.Navigation("Companies");
                 });
 #pragma warning restore 612, 618
         }
