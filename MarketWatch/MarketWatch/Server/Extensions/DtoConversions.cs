@@ -23,7 +23,6 @@ namespace MarketWatch.Server.Extensions
             {
                 Results = test
             };
-            ;
         }
 
         public static CompanyDto ConvertToDto(this Company company)
