@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -36,18 +37,20 @@ namespace MarketWatch.Server
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultUI();
 
             services.AddIdentityServer()
                 .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
+            
 
             services.AddAuthentication()
                 .AddIdentityServerJwt();
             
             services.AddScoped<ICompanyRepository, CompanyRepository>();
             services.AddControllers().AddNewtonsoftJson();
-
+            
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddSyncfusionBlazor(options => { options.IgnoreScriptIsolation = true; });
@@ -77,7 +80,7 @@ namespace MarketWatch.Server
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            
             app.UseIdentityServer();
             app.UseAuthentication();
             app.UseAuthorization();

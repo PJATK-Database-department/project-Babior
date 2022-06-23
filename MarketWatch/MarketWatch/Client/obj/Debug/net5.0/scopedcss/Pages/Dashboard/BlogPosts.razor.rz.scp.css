@@ -1,6 +1,7 @@
 ul.timeline[b-myiu2jn9j2] {
     list-style-type: none;
     position: relative;
+    width: 700px;
 }
 ul.timeline[b-myiu2jn9j2]:before {
     content: ' ';

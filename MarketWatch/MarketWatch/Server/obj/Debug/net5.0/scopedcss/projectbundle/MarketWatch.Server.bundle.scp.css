@@ -11,8 +11,12 @@
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
 }
+
+.container[b-jnle3nidrg] {
+    max-width: 1300px;
+}
 /* _content/MarketWatch.Server/Areas/Identity/Pages/Account/Register.cshtml.rz.scp.css */
-.custom[b-9xuyk0bzqu] {
+.gradient[b-9xuyk0bzqu] {
     /* fallback for old browsers */
     background: #6a11cb;
 
@@ -21,4 +25,8 @@
 
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+}
+
+.container[b-9xuyk0bzqu] {
+    max-width: 1300px;
 }

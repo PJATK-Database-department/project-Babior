@@ -1,57 +1,33 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MarketWatch.Client.Services.Contracts;
 using MarketWatch.Shared.Dtos;
 using Microsoft.AspNetCore.Components;
+using Syncfusion.Blazor.Charts;
 
 namespace MarketWatch.Client.Pages.Dashboard
 {
     public class StockChartBase : ComponentBase
     {
         [Inject] public IPriceService PriceService { get; set; }
-        protected List<PriceDto> Stocks { get; set; }
-        private string _tickerName;
+        [Parameter] public bool IsCompanyChosen { get; set; }
+        [Parameter] public DataWrapper Data { get; set; }
 
-        [Parameter]
-        public string TickerName
+        [Parameter] public PriceDto LastPrice { get; set; }
+        protected SfStockChart StockChart { get; set; }
+
+        protected override void OnInitialized()
         {
-            get => _tickerName;
-            set
-            {
-                _tickerName = value;
-                LoadStocksData();
-            }
+            Data.Stocks = new List<PriceDto>();
         }
 
-        private bool _isCompanyChosen;
-
-        [Parameter]
-        public bool IsCompanyChosen
+        protected override async Task OnParametersSetAsync()
         {
-            get => _isCompanyChosen;
-            set
-            {
-                _isCompanyChosen = value;
-                LoadStocksData();
-            }
-        }
-
-        protected bool SpinnerVisible { get; set; }
-
-        protected async void LoadStocksData()
-        {
-            SpinnerVisible = true;
-            if (TickerName == null) return;
-            var response = await PriceService.GetPricesByTicker(TickerName);
-            Stocks = response.ToList();
-            SpinnerVisible = false;
+            StockChart?.Refresh();
             StateHasChanged();
+            await base.OnParametersSetAsync();
         }
-
-        // protected override async Task OnInitializedAsync()
-        // {
-        //     LoadStocksData();
-        // }
     }
 }

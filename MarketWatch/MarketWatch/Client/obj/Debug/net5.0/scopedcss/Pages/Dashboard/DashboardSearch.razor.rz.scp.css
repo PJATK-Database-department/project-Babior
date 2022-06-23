@@ -1,18 +1,11 @@
-.ticker[b-np1dtf85y8] {
-
-}
 .name[b-np1dtf85y8] {
-    margin-left: 25px;
-}
-.equity[b-np1dtf85y8] {
-    right: 15px;
     position: absolute;
+    padding-left: 70px;
 }
 
-.e-custom[b-np1dtf85y8] {
-    font-size: 50px;
-    height: 30px;
-    width: 80px;
+.drop[b-np1dtf85y8] {
+    display: flex;
+    justify-content: space-between;
 }
 
 .searchbar[b-np1dtf85y8]

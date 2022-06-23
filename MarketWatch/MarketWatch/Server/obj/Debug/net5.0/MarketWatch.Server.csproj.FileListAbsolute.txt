@@ -416,3 +416,9 @@
 /Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Server/obj/Debug/net5.0/MarketWatch.Server.pdb
 /Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Server/obj/Debug/net5.0/MarketWatch.Server.genruntimeconfig.cache
 /Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Server/obj/Debug/net5.0/ref/MarketWatch.Server.dll
+/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Server/bin/Debug/net5.0/Microsoft.Extensions.Caching.Abstractions.dll
+/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Server/bin/Debug/net5.0/Microsoft.Extensions.Caching.Memory.dll
+/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Server/bin/Debug/net5.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Server/bin/Debug/net5.0/Microsoft.Extensions.Logging.Abstractions.dll
+/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Server/bin/Debug/net5.0/Microsoft.Extensions.Options.dll
+/Users/liza.babior/Desktop/PJATK/4 semester/APBD/Project/project-Babior/MarketWatch/MarketWatch/Server/bin/Debug/net5.0/Microsoft.Extensions.Primitives.dll

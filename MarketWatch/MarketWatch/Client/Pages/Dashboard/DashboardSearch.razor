@@ -1,20 +1,17 @@
-@using MarketWatch.Shared.Dtos
-@using Microsoft.AspNetCore.Components
 @inherits MarketWatch.Client.Pages.Dashboard.DashboardSearchBase
-
 
 <div class="container">
     <h3>Dashboard</h3>
     <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-2">
         <div class="input-group flex-container searchbar">
             <div class="search">
-                <SfDropDownList @ref="DropDownList" TItem="CompanyDto" TValue="string" Placeholder="Select a company" DataSource="@Companies" AllowFiltering="true" class="form-control border-0 bg-light searchbar">
+                <SfDropDownList TItem="CompanyDto" TValue="string" Placeholder="Select a company" DataSource="@Companies" AllowFiltering="true" class="form-control border-0 bg-light searchbar">
                     <DropDownListTemplates TItem="CompanyDto">
                         <ItemTemplate>
-                            <span>
-                                <span class="ticker">@(context.Ticker)</span>
+                            <span class="drop">
+                                <span>@(context.Ticker)</span>
                                 <span class="name">@(context.Name)</span>
-                                <span class="equity">@(context.Equity)</span>
+                                <span>@(context.Equity)</span>
                             </span>
                         </ItemTemplate>
                         <NoRecordsTemplate>
@@ -27,7 +24,6 @@
             </div>
             <div>
                 <button type="submit" class="btn text-primary f-lft" @onclick="OnAddClick">
-                    @* <SfButton @onclick="OnClick" CssClass="e-primary e-icons e-plus">Add</SfButton> *@
                     <span class="e-icons e-plus" aria-hidden="true"></span>
                 </button>
             </div>
@@ -36,17 +32,26 @@
 </div>
 
 
-<SfDialog Height="215px" Width="200px" Target="#target" @bind-Visible="SuccessDialogVisibility">
-    <DialogTemplates>
-        <Header>
-            <div class="e-icon-settings">Success</div>
-        </Header>
-        <Content>
-            <div class="dialogContent"></div>
-            <span class="dialogText">Company was added to your watchlist</span>
-        </Content>
-    </DialogTemplates>
-    <DialogButtons>
-        <DialogButton Content="Close" IsPrimary="true" @OnClick="CloseButtonClick"></DialogButton>
-    </DialogButtons>
-</SfDialog>
+<style>
+    .name {
+    position: absolute;
+    padding-left: 70px;
+    }
+    
+    .drop {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .searchbar
+    {
+        position: relative;
+        padding-top: 5px;
+        padding-left: 15px;
+    }
+    
+    .search
+    {
+        flex-grow: 8;
+    }
+</style>

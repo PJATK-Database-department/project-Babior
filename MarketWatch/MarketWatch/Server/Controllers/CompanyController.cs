@@ -19,19 +19,18 @@ namespace MarketWatch.Server.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetCompanies()
+        public async Task<IActionResult> GetCompanies([FromQuery(Name = "userName")] string userName)
         {
-            var companies = await _companyRepository.GetCompanies();
+            var companies = await _companyRepository.GetCompanies(userName);
 
             var companiesDtos = companies.ConvertToDtos();
             return Ok(companiesDtos);
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddCompany([FromBody] JObject requestBody)
+        public async Task<IActionResult> AddCompany([FromBody] JObject requestBody, [FromQuery(Name = "userName")] string userName)
         {
-
-            var company = await _companyRepository.InsertCompany(requestBody);
+            var company = await _companyRepository.InsertCompany(requestBody, userName);
 
             var companyDtos = company.ConvertToDto();
             return Ok(companyDtos);
@@ -41,7 +40,7 @@ namespace MarketWatch.Server.Controllers
         public async Task<IActionResult> DeleteCompany([FromRoute] string ticket)
         {
             await _companyRepository.DeleteCompany(ticket);
-            return Ok("Deleted");
+            return Ok();
         }
     }
 }

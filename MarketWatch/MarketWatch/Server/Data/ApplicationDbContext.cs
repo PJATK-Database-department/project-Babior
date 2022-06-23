@@ -9,27 +9,27 @@ namespace MarketWatch.Server.Data
 {
     public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
     {
-        public ApplicationDbContext(
-            DbContextOptions options,
+        public ApplicationDbContext(DbContextOptions options,
             IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
         {
         }
-        
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBulider)
         {
             base.OnConfiguring(optionsBulider);
         }
-    
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            modelBuilder
+                .Entity<ApplicationUser>()
+                .HasMany(p => p.Companies)
+                .WithMany(p => p.Users)
+                .UsingEntity(j => j.ToTable("UserCompanies"));
             
-            // modelBuilder.Entity<Company>()
-            //     .HasMany(c => c.Prices)
-            //     .WithOne();
+            base.OnModelCreating(modelBuilder);
         }
-        
+
         public DbSet<Company>? Companies { get; set; }
-        public DbSet<Branding>? Brandings { get; set; }
     }
 }

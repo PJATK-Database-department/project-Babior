@@ -1,6 +1,7 @@
 ul.timeline {
     list-style-type: none;
     position: relative;
+    width: 700px;
 }
 ul.timeline:before {
     content: ' ';

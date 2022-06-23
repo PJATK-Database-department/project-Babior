@@ -1,0 +1,32 @@
+@inherits PriceDetailsBase
+
+
+<section class="pt-5 pl-2">
+    <div class="container">
+        @if (IsCompanyChosen && Stocks != null)
+        {
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="text-muted mb-1">From: @LastPrice.Date.ToString("yyyy-MM-dd")</div>
+                </div>
+                <div class="col-md-3">
+                    <div class="text-muted mb-1">Open: @LastPrice.Open</div>
+                </div>
+                <div class="col-md-3">
+                    <div class="text-muted mb-1">Close: @LastPrice.Close</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="text-muted mb-1">Volume: @LastPrice.Volume</div>
+                </div>
+                <div class="col-md-3">
+                    <div class="text-muted mb-1">High: @LastPrice.High</div>
+                </div>
+                <div class="col-md-3">
+                    <div class="text-muted mb-1">Low: @LastPrice.Low</div>
+                </div>
+            </div>
+        }
+    </div>
+</section>

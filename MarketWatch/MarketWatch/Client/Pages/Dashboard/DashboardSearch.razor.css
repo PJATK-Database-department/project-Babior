@@ -1,18 +1,11 @@
-.ticker {
-
-}
 .name {
-    margin-left: 25px;
-}
-.equity {
-    right: 15px;
     position: absolute;
+    padding-left: 70px;
 }
 
-.e-custom {
-    font-size: 50px;
-    height: 30px;
-    width: 80px;
+.drop {
+    display: flex;
+    justify-content: space-between;
 }
 
 .searchbar

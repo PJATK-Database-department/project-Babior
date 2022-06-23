@@ -2,6 +2,7 @@
 ul.timeline[b-myiu2jn9j2] {
     list-style-type: none;
     position: relative;
+    width: 700px;
 }
 ul.timeline[b-myiu2jn9j2]:before {
     content: ' ';
@@ -29,6 +30,12 @@ ul.timeline > li[b-myiu2jn9j2]:before {
     height: 20px;
     z-index: 400;
 }
+/* /Pages/Dashboard/CompanyDetails.razor.rz.scp.css */
+.title[b-dnssr2g42d] {
+    font-size: 30px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
 /* /Pages/Dashboard/Dashboard.razor.rz.scp.css */
 .e-panel-header[b-8711uzsbhf] {
     background-color: rgba(0, 0, 0, .1);
@@ -42,22 +49,19 @@ ul.timeline > li[b-myiu2jn9j2]:before {
 .e-panel-content[b-8711uzsbhf] {
     
 }
+
+.chart[b-8711uzsbhf] {
+    padding-top: 100px;
+}
 /* /Pages/Dashboard/DashboardSearch.razor.rz.scp.css */
-.ticker[b-np1dtf85y8] {
-
-}
 .name[b-np1dtf85y8] {
-    margin-left: 25px;
-}
-.equity[b-np1dtf85y8] {
-    right: 15px;
     position: absolute;
+    padding-left: 70px;
 }
 
-.e-custom[b-np1dtf85y8] {
-    font-size: 50px;
-    height: 30px;
-    width: 80px;
+.drop[b-np1dtf85y8] {
+    display: flex;
+    justify-content: space-between;
 }
 
 .searchbar[b-np1dtf85y8]
